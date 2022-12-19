@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://AssetsObj/Kuyang/kuyang.glb" type="PackedScene" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.7
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 6.6795, 0 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -7.29543e-08, -1, 0, 1.669, -4.37114e-08, 0, 0.249038, 0.501695 )
+shape = SubResource( 1 )
+
+[node name="CameraPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74199, -0.204045 )
+
+[node name="Camera" type="Camera" parent="CameraPivot"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.00144844, 0.490255, 1.79837 )
+
+[node name="kuyang" parent="." instance=ExtResource( 2 )]
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0.60619, 0.30615 )
+
+[node name="Light" parent="kuyang" index="4"]
+visible = false
+
+[editable path="kuyang"]
