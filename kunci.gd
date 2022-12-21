@@ -28,7 +28,7 @@ func _on_kunci_body_entered(body):
 #		print("kena")
 #		var instance = scene.instance()
 		get_node("kunci").visible = false
-		get_node("portal/portal").visible = true
+		get_parent().get_node("kunci2").visible = true
 #		queue_free()
 	pass # Replace with function body.
 
