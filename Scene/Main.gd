@@ -1,5 +1,5 @@
 extends Spatial
-
+class_name portal
 
 # Declare member variables here. Examples:
 # var a = 2

@@ -1,4 +1,5 @@
 extends KinematicBody
+class_name Player
 const GRAVITY = -24.8
 var vel = Vector3()
 const MAX_SPEED = 20
