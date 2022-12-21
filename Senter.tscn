@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://AssetsObj/Senter/senter.glb" type="PackedScene" id=1]
+[ext_resource path="res://senter.gd" type="Script" id=2]
+
+[node name="senter" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Cube001" parent="." index="1"]
+transform = Transform( 4.06592, 0, 0, 0, 0.748714, 0, 0, 0, 1.47165, -4.71042, 0, 0 )

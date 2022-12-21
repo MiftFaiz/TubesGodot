@@ -13,6 +13,7 @@ const MAX_SLOPE_ANGLE = 40
 
 var camera
 var rotation_helper
+var status_light = 1
 
 var MOUSE_SENSITIVITY = 0.05
 
@@ -43,7 +44,15 @@ func process_input(delta):
 		input_movement_vector.x -= 1
 	if Input.is_action_pressed("ui_right"):
 		input_movement_vector.x += 1
-
+		
+	if Input.is_action_just_pressed("l") && status_light == 1:
+#	if Input.is_action_just_pressed("l"):
+		get_node("senter").visible = true
+		status_light = 0
+	if Input.is_action_just_released("l"):
+		yield(get_tree().create_timer(3),"timeout")
+		get_node("senter").visible = false
+		
 	input_movement_vector = input_movement_vector.normalized()
 
 	# Basis vectors are already normalized.
@@ -93,3 +102,9 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+
+
+func _on_batre_body_entered(body):
+	status_light = 1
+	pass # Replace with function body.
+
